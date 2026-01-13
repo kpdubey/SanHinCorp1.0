@@ -64,9 +64,10 @@ def calculate_comet_score(source_file, reference_file, hypothesis_file):
     return comet_output["system_score"], comet_output["scores"]
 
 # --------- File Paths (Update these if needed) ---------
-source_path = "/home/MaitH 1.0/mBART50/output/test.mai_Deva"
-reference_path = "/home/MaitH 1.0/mBART50/output/test.hin_Deva"
-hypothesis_path = "/home/MaitH 1.0/mBART50/output/generated_predictions.txt"
+source_path = "/SanHinCorp1.0/mBART50/output/test.san_Deva"
+reference_path = '/SanHinCorp1.0/mBART50/output/test.hin_Deva'  # Replace with your reference file path
+hypothesis_path = '/SanHinCorp1.0/mBART50/output/generated_predictions.txt'  # Replace with your hypothesis file path
+
 
 # --------- Run Evaluation ---------
 if __name__ == "__main__":

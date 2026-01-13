@@ -30,8 +30,8 @@ def calculate_bleu(reference_texts, hypothesis_texts):
     return bleu.score
 
 # File paths for reference and hypothesis texts
-reference_file = "/home/Maith 1.0/output/test.hin_Deva"
-hypothesis_file = "/home/Maith 1.0/output/translated_test_output.txt"
+reference_file = "/SanHinCorp1.0/NLLB-200/output/test.hin_Deva"
+hypothesis_file = "/SanHinCorp1.0/NLLB-200/output/translated_test_output.txt"
 
 
 

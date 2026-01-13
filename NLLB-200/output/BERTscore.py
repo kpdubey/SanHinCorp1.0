@@ -27,8 +27,8 @@ def calculate_bertscore(reference_texts, hypothesis_texts, lang_code='hi'):
     return P.mean().item(), R.mean().item(), F1.mean().item()
 
 # File paths
-reference_file = "/home/Maith 1.0/NLLB-200/output/test.hin_Deva"
-hypothesis_file = "/home/Maith 1.0/NLLB-200/output/translated_test_output.txt"
+reference_file = "/SanHinCorp1.0/NLLB-200/output/test.hin_Deva"
+hypothesis_file = "/SanHinCorp1.0/NLLB-200/output/translated_test_output.txt"
 
 # Read files
 reference_texts = read_text_file(reference_file)

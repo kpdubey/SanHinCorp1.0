@@ -13,27 +13,12 @@ def calculate_chrf2(reference_texts, hypothesis_texts):
     chrf2_score = sacrebleu.corpus_chrf(hypothesis_texts, [reference_texts], beta=2)
     return chrf2_score.score
 
-# Function to calculate TER score safely and log empty rows
+# Function to calculate TER score
 def calculate_ter(reference_texts, hypothesis_texts):
     ter_scores = []
-    skipped = 0
-    empty_indices = []
-
-    for idx, (ref, hyp) in enumerate(zip(reference_texts, hypothesis_texts)):
-        if len(ref.strip()) == 0 or len(hyp.strip()) == 0:
-            skipped += 1
-            empty_indices.append(idx + 1)  # 1-based line number
-            continue
+    for ref, hyp in zip(reference_texts, hypothesis_texts):
         ter_score = pyter.ter(ref.split(), hyp.split())
         ter_scores.append(ter_score)
-    
-    if empty_indices:
-        print(f"\nSkipped {skipped} sentence pairs due to empty reference or hypothesis.")
-        print(f"Empty rows (1-based indices): {empty_indices}\n")
-    
-    if not ter_scores:
-        raise ValueError("No valid sentence pairs to compute TER.")
-
     return sum(ter_scores) / len(ter_scores)
 
 # Function to calculate BERTScore
@@ -42,8 +27,8 @@ def calculate_bertscore(reference_texts, hypothesis_texts, lang_code='hi'):
     return P.mean().item(), R.mean().item(), F1.mean().item()
 
 # File paths
-reference_file = "/home/MaitH 1.0/mBART50/output/test.hin_Deva"
-hypothesis_file = "/home/MaitH 1.0/mBART50/output/generated_predictions.txt"
+reference_file = '/SanHinCorp1.0/mBART50/output/test.hin_Deva'  # Replace with your reference file path
+hypothesis_file = '/SanHinCorp1.0/mBART50/output/generated_predictions.txt'  # Replace with your hypothesis file path
 
 # Read files
 reference_texts = read_text_file(reference_file)
@@ -62,6 +47,6 @@ ter = calculate_ter(reference_texts, hypothesis_texts)
 print(f"TER Score: {ter * 100:.2f}%")
 
 # Calculate and print BERTScore
-P, R, F1 = calculate_bertscore(reference_texts, hypothesis_texts, lang_code='hi')
+P, R, F1 = calculate_bertscore(reference_texts, hypothesis_texts, lang_code='hi')  # Use 'hi' for Hindi
 print(f"BERTScore - Precision: {P:.4f}, Recall: {R:.4f}, F1: {F1:.4f}")
 

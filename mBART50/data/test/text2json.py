@@ -23,7 +23,7 @@ def txt_to_json(hindi_file, english_file, output_json):
         # Create a list of dictionaries with Hindi and English pairs
         data = []
         for hindi, english in zip(hindi_sentences, english_sentences):
-            data.append({"translation":{"ma": hindi.strip(),"hi": english.strip()}})
+            data.append({"translation":{"sa": hindi.strip(),"hi": english.strip()}})
         
         # Write the data to a JSON file
         with open(output_json, 'w', encoding='utf-8') as json_file:
@@ -32,8 +32,8 @@ def txt_to_json(hindi_file, english_file, output_json):
     print(f"JSON file created successfully at {output_json}")
 
 # Example Usage
-hindi_file = "/media/kpdubey/43a28c87-1876-4ae5-a360-9029ca34f6cd/nmt/mBART50_mai_hin_opusdata/data/test/test.mai_Deva"      # Path to Hindi text file
-english_file = "/media/kpdubey/43a28c87-1876-4ae5-a360-9029ca34f6cd/nmt/mBART50_mai_hin_opusdata/data/test/test.hin_Deva"  # Path to English text file
-output_json = "/media/kpdubey/43a28c87-1876-4ae5-a360-9029ca34f6cd/nmt/mBART50_mai_hin_opusdata/data/test/test.json"   # Output JSON file path
+hindi_file = "/media/kpdubey/43a28c87-1876-4ae5-a360-9029ca34f6cd/nmt/mBART50_san-hin/data/test/test.san_Deva"      # Path to Hindi text file
+english_file = "/media/kpdubey/43a28c87-1876-4ae5-a360-9029ca34f6cd/nmt/mBART50_san-hin/data/test/test.hin_Deva"  # Path to English text file
+output_json = "/media/kpdubey/43a28c87-1876-4ae5-a360-9029ca34f6cd/nmt/mBART50_san-hin/data/test/test.json"   # Output JSON file path
 
 txt_to_json(hindi_file, english_file, output_json)
