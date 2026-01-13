@@ -4,7 +4,7 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 model_name = "facebook/nllb-200-distilled-600M"
 
 # Define local directory to save the model
-save_directory = "/home/Maith 1.0/NLLB-200/nllb-200_model"  # Change to your desired path
+save_directory = "/SanHinCorp1.0/NLLB-200/nllb-200_model"  # Change to your desired path
 
 # Load and save model
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)

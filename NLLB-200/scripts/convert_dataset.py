@@ -2,7 +2,7 @@ from datasets import DatasetDict, Dataset
 import os
 
 # Paths to data files
-data_path = "/home/MaitH1.0/NLLB-200/data"
+data_path = "/SanHinCorp1.0/NLLB-200/data"
 
 # Function to load text files
 def load_text_data(lang):
@@ -38,7 +38,7 @@ dataset = DatasetDict({
 })
 
 # Save dataset
-hf_dataset_path = "/home/MaitH1.0/NLLB-200data/hf_dataset"
+hf_dataset_path = "/SanHinCorp1.0/NLLB-200/data/hf_dataset"
 dataset.save_to_disk(hf_dataset_path)
 
 print(f"✅ Dataset saved successfully at {hf_dataset_path}!")

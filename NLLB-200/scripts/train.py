@@ -2,11 +2,11 @@ from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, TrainingArguments
 from datasets import load_from_disk
 
 # Load dataset
-dataset_path = "/home/MaitH1.0/NLLB-200/data/hf_dataset"
+dataset_path = "/SanHinCorp1.0/NLLB-200/data/hf_dataset"
 datasets = load_from_disk(dataset_path)
 
 # Load Model & Tokenizer
-model_name = "/home/Maith 1.0/NLLB-200/nllb-200_model"
+model_name = "/SanHinCorp1.0/NLLB-200/nllb-200_model"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
@@ -32,7 +32,7 @@ tokenized_datasets = datasets.map(preprocess_function, batched=True)
 
 # Define training arguments using eval_loss as the metric for best model
 training_args = TrainingArguments(
-    output_dir="/home/Maith 1.0/NLLB-200/checkpoints",
+    output_dir="/SanHinCorp1.0/NLLB-200/checkpoints",
     evaluation_strategy="epoch",
     save_strategy="epoch",
     learning_rate=2e-5,
@@ -41,7 +41,7 @@ training_args = TrainingArguments(
     num_train_epochs=5,
     weight_decay=0.01,
     save_total_limit=2,
-    logging_dir="/home/Maith 1.0/NLLB-200/data/logs",
+    logging_dir="/home/SanHinCorp1.0/NLLB-200/data/logs",
     logging_steps=500,
     fp16=True,
     load_best_model_at_end=True,        # Automatically load the best model at the end
@@ -66,8 +66,8 @@ trainer = Trainer(
 trainer.train()
 
 # Save final model (the best checkpoint will be loaded automatically)
-trainer.save_model("/home/Maith 1.0/NLLB-200/checkpoints/nllb_finetuned_maithili_hindi")
-tokenizer.save_pretrained("/home/Maith 1.0/NLLB-200/checkpoints/nllb_finetuned_maithili_hindi")
+trainer.save_model("/SanHinCorp1.0/NLLB-200/checkpoints/nllb_finetuned_maithili_hindi")
+tokenizer.save_pretrained("/SanHinCorp1.0/NLLB-200/checkpoints/nllb_finetuned_maithili_hindi")
 
 print("Fine-tuning completed and model saved!")
 

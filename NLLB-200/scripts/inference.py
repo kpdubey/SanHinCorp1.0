@@ -4,9 +4,9 @@ from tqdm import tqdm
 import torch
 
 # Paths
-model_dir = "/home/Maith 1.0/NLLB-200/checkpoints/nllb_finetuned_maithili_hindi"
-dataset_path = "/home/Maith 1.0/NLLB-200/data/hf_dataset"
-output_file = "/home/Maith 1.0/NLLB-200/output/translated_test_output.txt"
+model_dir = "/SanHinCorp1.0/NLLB-200/checkpoints/nllb_finetuned_maithili_hindi"
+dataset_path = "/SanHinCorp1.0/NLLB-200/data/hf_dataset"
+output_file = "/SanHinCorp1.0/NLLB-200/output/translated_test_output.txt"
 
 # Load model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained(model_dir)
