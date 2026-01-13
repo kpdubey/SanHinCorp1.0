@@ -1,6 +1,6 @@
-# Sanskrit-Hindi Translation Models
+# SanHinCorp1.0: A Benchmark Parallel Corpus for Low-Resource Sanskrit-Hindi Machine Translation
 
-## Trnasformer Model
+## Transformer Model
 
 ### 1. Create Conda Environment
 ```bash
